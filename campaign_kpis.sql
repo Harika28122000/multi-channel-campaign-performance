@@ -1,0 +1,1 @@
+SELECT channel, SUM(spend) AS spend, SUM(revenue) AS revenue, SUM(conversions) AS conversions, SUM(clicks)*1.0/NULLIF(SUM(impressions),0) AS ctr, SUM(spend)*1.0/NULLIF(SUM(conversions),0) AS cac, SUM(revenue)*1.0/NULLIF(SUM(spend),0) AS roas FROM campaign_performance GROUP BY channel ORDER BY roas DESC;
